@@ -30,8 +30,9 @@ body{
         border: black solid 1px;
         background-color: gray;
         border-radius: 50%;
-        display: flex;
+        /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
+        background-size: cover;
     }
 }
