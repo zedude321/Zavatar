@@ -27,12 +27,14 @@ body{
         padding: 5px;
         min-width: 50px;
         margin-right: 15px;
-        border: black solid 1px;
+        border: black solid 2px;
         background-color: gray;
         border-radius: 50%;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
         background-size: cover;
+    }
+    .backbutton{
+        height: 5%;
+        width: 100%;
+        background-color: aqua;
     }
 }
