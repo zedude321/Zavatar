@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    background-color: #f3ca3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.ovl {
+
+    margin: 15px;
+}
+
+#oval1 {
+    animation: scaling 3s;
+    animation-iteration-count: 3s;
+   
+}
+
+#oval2 {
+    animation: scaling 3s;
+    animation-delay: 3s;
+    animation-iteration-count: 3s;
+}
+
+#oval3 {
+    animation: scaling 3s;
+    animation-delay: 6s;    
+    animation-iteration-count: 3s;
+}
+
+@keyframes scaling {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
