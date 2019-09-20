@@ -37,4 +37,7 @@ body{
         width: 100%;
         background-color: aqua;
     }
+    .item:hover{
+        background-color: black;
+    }
 }
