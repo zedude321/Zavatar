@@ -18,45 +18,62 @@ function createItem(name, photoURL) {
     return category;
 }
 function setCategories() {
-    document.getElementsByClassName('menu')[0].innerHTML = "";
-    categories.get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
-                let el = createCategoryItem(doc.id, doc.data().gsURL);
-                document.getElementsByClassName('menu')[0].appendChild(el);
+    document.getElementsByClassName('menu')[0].classList.add('slide');
+
+    setTimeout(function(){
+        document.getElementsByClassName('menu')[0].innerHTML = "";
+        categories.get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    // console.log(doc.id, " => ", doc.data());
+                    let el = createCategoryItem(doc.id, doc.data().gsURL);
+                    document.getElementsByClassName('menu')[0].appendChild(el);
+                });
+            })
+            .catch(function (error) {
+                console.log("Error getting documents: ", error);
             });
-        })
-        .catch(function (error) {
-            console.log("Error getting documents: ", error);
-        });
+    }, 500);
+
+    setTimeout(function(){
+        document.getElementsByClassName('menu')[0].classList.remove('slide');
+    }, 1000);   
 }
 setCategories();
 function choiceCategory(name) {
-    document.getElementsByClassName('menu')[0].innerHTML = "";
-    document.getElementsByClassName('menu')[0].appendChild(createItem("back", "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
+    document.getElementsByClassName('menu')[0].classList.add('slide');
 
-    categories.doc(name).get().then(function (doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-            let items = doc.data();
+    setTimeout(function(){
+        document.getElementsByClassName('menu')[0].innerHTML = "";
+        document.getElementsByClassName('menu')[0].appendChild(createItem("back", "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
 
-            Object.keys(items).forEach(function (key) {
-                // console.log(key); // key
-                // console.log(items[key]); // value
-                if (key != 'gsURL') {
-                    let el = createItem(key, items[key].gsURL);
-                    document.getElementsByClassName('menu')[0].appendChild(el);
-                }
-            });
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function (error) {
-        console.log("Error getting document:", error);
-    });
+        categories.doc(name).get().then(function (doc) {
+            if (doc.exists) {
+                console.log("Document data:", doc.data());
+                let items = doc.data();
+
+                Object.keys(items).forEach(function (key) {
+                    // console.log(key); // key
+                    // console.log(items[key]); // value
+                    if (key != 'gsURL') {
+                        let el = createItem(key, items[key].gsURL);
+                        document.getElementsByClassName('menu')[0].appendChild(el);
+                    }
+                });
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function (error) {
+            console.log("Error getting document:", error);
+        });
+    }, 500);
+
+    setTimeout(function(){
+        document.getElementsByClassName('menu')[0].classList.remove('slide');
+    }, 1000);
+    
 }
 function choiceItem(name) {
     if (name == "back") {
