@@ -83,6 +83,9 @@ body {
     .items-holder {
         position: relative;
     }
+    .slide {
+        animation: slide 1s ease-in-out;
+    }
     .menu {
         display: flex;
         overflow-x: scroll;
@@ -102,5 +105,19 @@ body {
         background-color: blue;
         border-radius: 50%;
         background-size: cover;
+    }
+    /* .item:active{
+
+    } */
+    @keyframes slide{
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(200px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
     }
 }

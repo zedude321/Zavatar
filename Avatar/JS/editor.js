@@ -63,6 +63,6 @@ function choiceItem(name) {
         setCategories();
     }
     else {
-        alert(name);
+        alert('YouSuck');
     }
 }
