@@ -1,6 +1,4 @@
 const categories = firebase.firestore().collection('categories');
-
-
 function createCategoryItem(name, photoURL) {
     let category = document.createElement('div');
     category.addEventListener('click', function () {
@@ -10,7 +8,6 @@ function createCategoryItem(name, photoURL) {
     category.style.backgroundImage = "url('" + photoURL + "')";
     return category;
 }
-
 function createItem(name, photoURL) {
     let category = document.createElement('div');
     category.addEventListener('click', function () {
@@ -20,9 +17,6 @@ function createItem(name, photoURL) {
     category.style.backgroundImage = "url('" + photoURL + "')";
     return category;
 }
-
-
-
 function setCategories() {
     document.getElementsByClassName('menu')[0].innerHTML = "";
     categories.get()
@@ -38,9 +32,7 @@ function setCategories() {
             console.log("Error getting documents: ", error);
         });
 }
-
 setCategories();
-
 function choiceCategory(name) {
     document.getElementsByClassName('menu')[0].innerHTML = "";
     document.getElementsByClassName('menu')[0].appendChild(createItem("back", "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
@@ -66,14 +58,11 @@ function choiceCategory(name) {
         console.log("Error getting document:", error);
     });
 }
-
-
-
 function choiceItem(name) {
     if (name == "back") {
         setCategories();
     }
     else {
-        alert(name);
+        alert('YouSuck');
     }
 }
