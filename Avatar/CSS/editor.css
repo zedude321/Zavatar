@@ -6,9 +6,6 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
-    .suck{
-        background-image: url('file:///Users/zedude/Downloads/audio.png');
-    }
     .screen {
         height: 85%;
         width: 100%;
