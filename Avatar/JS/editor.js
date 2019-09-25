@@ -1,6 +1,6 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        document.getElementById('profile').innerHTML = user.displayName;
+        document.getElementsByClassName('header')[0].innerHTML = user.displayName;
     } else {
         window.location = "/index.html";
     }
