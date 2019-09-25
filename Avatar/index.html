@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>avatar</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDmZLEIBqj8oea4L18zT8MgDXUpDHPN3G0",
+            authDomain: "zavatarapp.firebaseapp.com",
+            databaseURL: "https://zavatarapp.firebaseio.com",
+            projectId: "zavatarapp",
+            storageBucket: "zavatarapp.appspot.com",
+            messagingSenderId: "382425693061",
+            appId: "1:382425693061:web:a86cb1a32e17474ce5a2ec"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #151616;
+            background-size: cover;
+        }
+
+        .index {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 30px;
+            font-family: sans-serif;
+            background: #F3CA3E;
+            border-radius: 10px;
+        }
+
+        #jpg img {
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            transition: all 2s;
+        }
+
+        .index h2 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            width: 49%;
+            box-sizing: border-box;
+            border: none;
+            font-size: 1.3em;
+            border-radius: 10px;
+            font-weight: bold;
+
+        }
+
+        button a {
+            text-decoration: none;
+            color: #2E2E2E;
+        }
+
+        button:nth-child(1) {
+            background: #2E2E2E;
+        }
+
+        button:nth-child(2) {
+            background: #2E2E2E;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=submit] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 17px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            border: 2px solid gray;
+        }
+
+        .image-container {
+            position: relative;
+            height: 100px;
+        }
+
+        .image-1,
+        .image-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="jpg" class="index">
+        <div class="image-container">
+            <img id="image-1" class="image-1" src="./SRC/1.jpg" />
+            <img id="image-2" class="image-2" src="./SRC/2.jpg" />
+        </div>
+        <h2>tavtai moril</h2>
+        <form>
+            <label>Username:</label><br>
+            <input type="text">
+            <label> Passwprd:</label><br>
+            <input type="password">
+            <input type="submit" value="Log in">
+        </form>
+        <div class="social-media">
+            <button><a href="https://www.facebook.com/"><i class="fa fa-facebook"><img src="facebook.jpg" alt=""
+                            width="25" height="25"></i>-p нэвтрэх</a></button>
+            <button><a href="https://mail.google.com/"><i class="fa fa-google"><img src="google.jpg" alt="" width="25"
+                            height="25"></i>-p нэвтрэх</a></button>
+        </div>
+
+
+    </div>
+
+    </div>
+    <script>
+        var imageSources = ["1.jpg", "2.jpg"]
+
+        var index = 1;
+        let image1 = document.getElementById('image-1');
+        let image2 = document.getElementById('image-2');
+
+        image1.style.opacity = 0;
+        image2.style.opacity = 1;
+
+        let isImage1Visibile = false;
+
+        setInterval(() => {
+            if (isImage1Visibile === true) {
+                image1.style.opacity = 0;
+                image2.style.opacity = 1;
+            } else {
+                image1.style.opacity = 1;
+                image2.style.opacity = 0;
+            }
+
+            isImage1Visibile = !isImage1Visibile;
+        }, 2000)
+
+
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        function signInWithGoogle() {
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                
+                console.log(user);
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                console.log('Auth error', errorCode, errorMessage);
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
