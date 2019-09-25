@@ -1,9 +1,16 @@
-var hemjee = 35;
-function oval() {
-    document.getElementById("oval1").style.width = hemjee + 15;
-    hemjee = hemjee - 15;
-    document.getElementById("oval2").style.width = hemjee + 15;
-    hemjee = hemjee - 15;
-    document.getElementById("oval3").style.width = hemjee + 15;
-    hemjee = hemjee - 15;
-} 
+let images = document.getElementsByClassName('image');
+
+let visibleImage = 1;
+
+setInterval(() => { 
+
+    for (let i = 0; i < images.length; i++) {
+        images[i].style.opacity = 0;
+    }
+    images[visibleImage - 1].style.opacity = 1;
+
+    visibleImage++;
+    if (visibleImage === 6) {
+        visibleImage = 1;
+    }
+}, 1500)

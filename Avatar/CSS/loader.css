@@ -13,36 +13,110 @@ body {
     
 }
 .ovl {
-
+    animation: infinite;
     margin: 15px;
 }
 
 #oval1 {
-    animation: scaling 3s;
-    animation-iteration-count: 3s;
-   
+    animation: scaling;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
 
 #oval2 {
-    animation: scaling 3s;
-    animation-delay: 3s;
-    animation-iteration-count: 3s;
+    animation: scaling2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
 
 #oval3 {
-    animation: scaling 3s;
-    animation-delay: 6s;    
-    animation-iteration-count: 3s;
+    animation: scaling3;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes scaling {
     0% {
         transform: scale(1);
     }
-    50% {
-        transform: scale(1.4);
+    16%{
+        transform: scale(1.5);
+    }
+    33% {
+        transform: scale(1);
     }
     100% {
         transform: scale(1);
     }
+}
+
+@keyframes scaling2 {
+    0% {
+        transform: scale(1);
+    }
+    33% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    66% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scaling3 {
+    0% {
+        transform: scale(1);
+    }
+    66% {
+        transform: scale(1);
+    }
+    83% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+img {
+    opacity: 1;
+    transition: all 2s;
+}
+
+.img-container {
+    position: relative;
+    height: 120px;
+    width: 120px;
+}
+
+#img-2 {
+
+    opacity: 0;
+
+}
+#img-3 {
+    opacity: 0;
+    
+}
+#img-4 {
+
+    opacity: 0;
+}
+#img-5 {
+    opacity: 0;
+    
+}
+#img-1,
+#img-2,
+#img-3,
+#img-4,
+#img-5 {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
