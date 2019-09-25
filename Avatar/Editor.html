@@ -3,35 +3,34 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/icon.css">
-
-
+    <link rel="stylesheet" href="CSS/editor.css">
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
-
-
     <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyDmZLEIBqj8oea4L18zT8MgDXUpDHPN3G0",
-        authDomain: "zavatarapp.firebaseapp.com",
-        databaseURL: "https://zavatarapp.firebaseio.com",
-        projectId: "zavatarapp",
-        storageBucket: "",
-        messagingSenderId: "382425693061",
-        appId: "1:382425693061:web:a86cb1a32e17474ce5a2ec"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDmZLEIBqj8oea4L18zT8MgDXUpDHPN3G0",
+            authDomain: "zavatarapp.firebaseapp.com",
+            databaseURL: "https://zavatarapp.firebaseio.com",
+            projectId: "zavatarapp",
+            storageBucket: "",
+            messagingSenderId: "382425693061",
+            appId: "1:382425693061:web:a86cb1a32e17474ce5a2ec"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 </head>
 
 <body>
-    <div class="screen"></div>
+    <div class="screen">
+        <div id="profile">
+        </div>
+    </div>
     <div class="menu">
     </div>
-
-    <script src = "JS/editor.js"></script>
+    <script src="JS/editor.js"></script>
 </body>
 
 </html>
