@@ -1,3 +1,12 @@
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        document.getElementById('profile').innerHTML = user.displayName;
+    } else {
+        window.location = "/index.html";
+    }
+});
+
+
 const categories = firebase.firestore().collection('categories');
 function createCategoryItem(name, photoURL) {
     let category = document.createElement('div');

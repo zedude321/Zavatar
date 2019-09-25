@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    background-color: #f3ca3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.img-container {
+    position: relative;
+    height: 120px;
+    width: 120px;
+}
+#img-1,
+#img-2,
+#img-3,
+#img-4,
+#img-5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.oval {
+    margin: 5px;
+}
