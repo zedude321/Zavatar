@@ -1,63 +1,54 @@
-
 body {
-    background: #151616;
-    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
-
 .container {
-    max-width: 400px;
-    margin: auto;
-    font-family: sans-serif;
-    background: #333333;
-    border-radius: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+    flex-direction: column;
 }
 .status-bar {
     width: 100%;
-    height: 20vw;
+    height: 10%;
     background-color: #151616;
-
 }
-.index {
-    max-width: 400px;
-    margin: auto;
-    padding: 30px;
-    font-family: sans-serif;
+.images {
+    width: 100%;
+    height: 50%;
     background: #F3CA3E;
     border-radius: 10px;
 }
-
-#jpg img {
-    width: 50%;
-    height: 80%;
-    transition: all 1s;
-    font-family: sans-serif;
-}
- 
-.index h2 {
-    font-size: 2em;
-    text-align: center;
-}
-
-button {
-    padding: 10px;
-    width: 100%;
-    border: none;
-    font-size: 2em;
-    border-radius: 15px;
-    margin-bottom: 1px;
-    background-color: #2E2E2E;
-}
-.social-media h2{
-    border: none;
-}
 .image-container {
     position: relative;
-    height: 100px;
+    width: 100%;
+    height: 50%;
 }
-
 .image {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+}
+#jpg img {
+    width: 200px;
+    height: 200px;
+    transition: all 1s;
+} 
+.text {
+    width: 100%;
+    height: 10%;
+}
+.social-media{
+    width: 100%;
+    height: 40%;
+}
+button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 2em;
+    background-color: #2E2E2E;
 }
