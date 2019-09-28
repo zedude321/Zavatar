@@ -1,16 +1,25 @@
-{
-    box-sizing: border-box;
-}
 
 body {
     background: #151616;
     background-size: cover;
 }
 
+.container {
+    max-width: 400px;
+    margin: auto;
+    font-family: sans-serif;
+    background: #333333;
+    border-radius: 10px;
+}
+.status-bar {
+    width: 100%;
+    height: 20vw;
+    background-color: #151616;
+
+}
 .index {
     max-width: 400px;
     margin: auto;
-    margin-top: 100px;
     padding: 30px;
     font-family: sans-serif;
     background: #F3CA3E;
@@ -18,11 +27,12 @@ body {
 }
 
 #jpg img {
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: 80%;
     transition: all 1s;
+    font-family: sans-serif;
 }
-
+ 
 .index h2 {
     font-size: 2em;
     text-align: center;
@@ -31,39 +41,15 @@ body {
 button {
     padding: 10px;
     width: 100%;
-    box-sizing: border-box;
     border: none;
     font-size: 2em;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
+    background-color: #2E2E2E;
 }
-
-button a {
-    text-decoration: none;
-    color: #2E2E2E;
-}
-
-button:nth-child(1) {
-    background: #2E2E2E;
-}
-
-button:nth-child(2) {
-    background: #2E2E2E;
-}
-
-/* input[type=text],
-input[type=password],
-input[type=submit] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-size: 17px;
-    border-radius: 5px;
-    outline: none;
+.social-media h2{
     border: none;
-    border: 2px solid gray;
-} */
-
+}
 .image-container {
     position: relative;
     height: 100px;
