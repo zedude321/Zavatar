@@ -4,13 +4,12 @@ body {
     height: 100vh;
     background-color: #F3CA3E;
 }
-
 @media only screen and (max-width: 480px) {
     .header {
-        background-color: #444444;
+        background-color: rgb(226, 187, 58);
         height: 10vh;
         width: 100vw;
-        color: white;
+        color: black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -66,7 +65,7 @@ body {
     }
     .avatar{
         width: 300px;
-        height: 600px;
+        height: 550px;
         border: 1px #4F4F4F solid;
     }
 }

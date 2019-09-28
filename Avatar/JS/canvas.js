@@ -4,14 +4,34 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male = new Image();
-male.src = "./SRC/male.png";
+male.src = "./SRC/Guy.png";
 
-function drawMale(){
-    ctx.drawImage(male, 10, 10, w - 20, h - 20);
-}
+function start(){
+    var c1=scaleIt(male, 2);
+    canvas.width=c1.width/2;
+    canvas.height=c1.height/2;
+    ctx.drawImage(c1, 45, 60, 330 * 4 / 5, 790 * 4 / 5);
+  }
 
-function drawMale2(){
-    ctx.drawImage(male, 50, 10, 50, 50);
-}
+function scaleIt(source,scaleFactor){
+    var c=document.createElement('canvas');
+    var ctx=c.getContext('2d');
+    var w=source.width*scaleFactor;
+    var h=source.height*scaleFactor;
+    c.width=w;
+    c.height=h;
+    ctx.drawImage(source,0,0,w,h);
+    return(c);
+  }
 
-drawMale();
+start();
+
+// function drawMale(){
+//     ctx.drawImage(male, 10, 10, w - 40, h - 20);
+// }
+
+// function drawMale2(){
+//     ctx.drawImage(male, 50, 10, 50, 50);
+// }
+
+// drawMale();
