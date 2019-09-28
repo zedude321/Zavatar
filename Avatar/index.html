@@ -3,7 +3,8 @@
 
 <head>
     <title>avatar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"">
+    <link rel="stylesheet" type="text/css" href="CSS/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src=" https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"> </script> <script
         src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js">
         </script>
@@ -22,87 +23,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #151616;
-            background-size: cover;
-        }
-
-        .index {
-            max-width: 400px;
-            margin: auto;
-            margin-top: 100px;
-            padding: 30px;
-            font-family: sans-serif;
-            background: #F3CA3E;
-            border-radius: 10px;
-        }
-
-        #jpg img {
-            width: 100px;
-            height: 100px;
-            opacity: 1;
-            transition: all 2s;
-        }
-
-        .index h2 {
-            font-size: 2em;
-            text-align: center;
-        }
-
-        button {
-            padding: 10px;
-            width: 49%;
-            box-sizing: border-box;
-            border: none;
-            font-size: 1.3em;
-            border-radius: 10px;
-            font-weight: bold;
-
-        }
-
-        button a {
-            text-decoration: none;
-            color: #2E2E2E;
-        }
-
-        button:nth-child(1) {
-            background: #2E2E2E;
-        }
-
-        button:nth-child(2) {
-            background: #2E2E2E;
-        }
-
-        input[type=text],
-        input[type=password],
-        input[type=submit] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            font-size: 17px;
-            border-radius: 5px;
-            outline: none;
-            border: none;
-            border: 2px solid gray;
-        }
-
-        .image-container {
-            position: relative;
-            height: 100px;
-        }
-
-        .image-1,
-        .image-2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    </style>
 </head>
 
 <body>

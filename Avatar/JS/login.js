@@ -53,28 +53,19 @@ function googleLogin() {
         console.log('Auth error', errorCode, errorMessage);
     });
 }
+let images = document.getElementsByClassName('image');
 
+let visibleImage = 1;
 
+setInterval(() => { 
 
-var imageSources = ["1.jpg", "2.jpg"]
-
-var index = 1;
-let image1 = document.getElementById('image-1');
-let image2 = document.getElementById('image-2');
-
-image1.style.opacity = 0;
-image2.style.opacity = 1;
-
-let isImage1Visibile = false;
-
-setInterval(() => {
-    if (isImage1Visibile === true) {
-        image1.style.opacity = 0;
-        image2.style.opacity = 1;
-    } else {
-        image1.style.opacity = 1;
-        image2.style.opacity = 0;
+    for (let i = 0; i < images.length; i++) {
+        images[i].style.opacity = 0;
     }
+    images[visibleImage - 1].style.opacity = 1;
 
-    isImage1Visibile = !isImage1Visibile;
+    visibleImage++;
+    if (visibleImage === 6) {
+        visibleImage = 1;
+    }
 }, 2000)
