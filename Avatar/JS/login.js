@@ -53,8 +53,8 @@ function googleLogin() {
         console.log('Auth error', errorCode, errorMessage);
     });
 }
-let images = document.getElementsByClassName('image');
 
+let images = document.getElementsByClassName('image');
 let visibleImage = 1;
 
 setInterval(() => { 
