@@ -6,6 +6,8 @@ const w = canvas.width;
 const male = new Image();
 male.src = "./SRC/Guy.png";
 
+const chefHat = new Image()
+
 function start(){
     var c1=scaleIt(male, 2);
     canvas.width=c1.width/2;

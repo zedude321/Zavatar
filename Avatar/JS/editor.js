@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 const categories = firebase.firestore().collection('categories');
+let itemtype;
 function createCategoryItem(name, photoURL) {
     let category = document.createElement('div');
     category.addEventListener('click', function () {
@@ -89,6 +90,6 @@ function choiceItem(name) {
         setCategories();
     }
     else {
-        alert('YouSuck');
+        addclothes
     }
 }
