@@ -90,6 +90,6 @@ function choiceItem(name) {
         setCategories();
     }
     else {
-        addclothes
+        drawHat()
     }
 }

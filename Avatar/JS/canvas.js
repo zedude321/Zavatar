@@ -6,34 +6,37 @@ const w = canvas.width;
 const male = new Image();
 male.src = "./SRC/Guy.png";
 
-const chefHat = new Image()
+const chefHat = new Image();
+chefHat.src = "./SRC/chef.png";
 
-function start(){
-    var c1=scaleIt(male, 2);
-    canvas.width=c1.width/2;
-    canvas.height=c1.height/2;
-    ctx.drawImage(c1, 45, 60, 330 * 4 / 5, 790 * 4 / 5);
-  }
+function scaleIt(source, scaleFactor) {
+    var c = document.createElement('canvas');
+    var ctx = c.getContext('2d');
+    var cw = w * scaleFactor;
+    var ch = h * scaleFactor;
+    c.width = cw;
+    c.height = ch;
+    ctx.drawImage(source, 0, 0, cw, ch);
+    return (c);
+}
+console.log('OKO',canvas.height, canvas.width);
 
-function scaleIt(source,scaleFactor){
-    var c=document.createElement('canvas');
-    var ctx=c.getContext('2d');
-    var w=source.width*scaleFactor;
-    var h=source.height*scaleFactor;
-    c.width=w;
-    c.height=h;
-    ctx.drawImage(source,0,0,w,h);
-    return(c);
-  }
+function drawMale() {
+    var c1 = scaleIt(male, 4);
+    canvas.width = w * 2;
+    canvas.height = h * 2;
+    ctx.drawImage(c1, 50, 35, canvas.width * 5 / 6, canvas.height * 5 / 6);
+    // ctx.drawImage(c1, 0, 0, canvas.width, canvas.height);
+    console.log('WJI',canvas.height, canvas.width);
+}
 
-start();
+drawMale();
 
-// function drawMale(){
-//     ctx.drawImage(male, 10, 10, w - 40, h - 20);
-// }
 
-// function drawMale2(){
-//     ctx.drawImage(male, 50, 10, 50, 50);
-// }
-
-// drawMale();
+function drawHat() {
+    var c1 = scaleIt(chefHat, 4);
+    // canvas.width = w * 2;
+    // canvas.height = h * 2;
+    ctx.drawImage(c1, 0, 0, canvas.width, canvas.height);
+    console.log('SKO', canvas.height, canvas.width);
+}
