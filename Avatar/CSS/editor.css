@@ -93,6 +93,7 @@ body {
         animation: slide 1s ease-in-out;
     }
     .menu {
+        border-top: #444444 1px solid;
         display: flex;
         overflow-x: scroll;
         width: 100vw;
