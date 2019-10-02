@@ -6,37 +6,19 @@ const w = canvas.width;
 const male = new Image();
 male.src = "./SRC/Guy.png";
 
-const chefHat = new Image();
-chefHat.src = "./SRC/chef.png";
-
-function scaleIt(source, scaleFactor) {
-    var c = document.createElement('canvas');
-    var ctx = c.getContext('2d');
-    var cw = w * scaleFactor;
-    var ch = h * scaleFactor;
-    c.width = cw;
-    c.height = ch;
-    ctx.drawImage(source, 0, 0, cw, ch);
-    return (c);
-}
-console.log('OKO',canvas.height, canvas.width);
-
-function drawMale() {
-    var c1 = scaleIt(male, 4);
-    canvas.width = w * 2;
-    canvas.height = h * 2;
-    ctx.drawImage(c1, 50, 35, canvas.width * 5 / 6, canvas.height * 5 / 6);
-    // ctx.drawImage(c1, 0, 0, canvas.width, canvas.height);
-    console.log('WJI',canvas.height, canvas.width);
+function draw(acquired){
+    ctx.drawImage(male, 0, 50, canvas.width, canvas.height);
+    Object.keys(acquired).forEach(function (key) {
+        categories.doc(key).get().then(function (doc) {
+            // console.log(key); // key
+            // console.log(acquired[key]); // value
+            // console.log(doc.data().items[acquired[key]].gsURL);
+            var tmpImage = new Image();
+            tmpImage.src = doc.data().items[acquired[key]].gsURL;
+            console.log(doc.data().items[acquired[key]].x, doc.data().items[acquired[key]].y, doc.data().items[acquired[key]].w, doc.data().items[acquired[key]].h);
+            ctx.drawImage(tmpImage, doc.data().items[acquired[key]].x, doc.data().items[acquired[key]].y, doc.data().items[acquired[key]].w, doc.data().items[acquired[key]].h);
+        });
+    });
 }
 
-drawMale();
-
-
-function drawHat() {
-    var c1 = scaleIt(chefHat, 4);
-    // canvas.width = w * 2;
-    // canvas.height = h * 2;
-    ctx.drawImage(c1, 0, 0, canvas.width, canvas.height);
-    console.log('SKO', canvas.height, canvas.width);
-}
+// setInterval(function(){draw(acquired)}, 100);
