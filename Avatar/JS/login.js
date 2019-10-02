@@ -7,7 +7,7 @@ function createUser(uid, name, email) {
     userRef.set({
         name: name,
         email: email,
-        acquired: []
+        acquired: {}
     })
         .then(function () {
             console.log("User created!");
