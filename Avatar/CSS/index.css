@@ -1,7 +1,8 @@
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .container {
     display: flex;
@@ -9,22 +10,22 @@ body {
     height: 100%;
     background-color: #333333;
     flex-direction: column;
-}
-.status-bar {
-    width: 100%;
-    height: 10%;
-    background-color: #151616;
+    align-items: center;
 }
 .images {
-    width: 100%;
-    height: 50%;
-    background: #F3CA3E;
-    border-radius: 10px;
-}
-.image-container {
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 60%;
+    background: #F3CA3E;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    border-bottom: 2px solid #808080;
+}
+.image-container {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+    height: 50vh;
 }
 .image {
     position: absolute;
@@ -33,22 +34,77 @@ body {
     opacity: 0;
 }
 #jpg img {
-    width: 200px;
-    height: 200px;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-bottom: 0vh;
+    width: 70%;
+    height: 85%;
     transition: all 1s;
 } 
-.text {
-    width: 100%;
-    height: 10%;
+.text h2{
+    font-size: 4vh;
+    margin: 1;
+    color: #fff;
+}
+
+button {
+    width: 80%;
+    height: 17%;
+    border: none;
+    font-size: 2em;
+    background-color: #2E2E2E;
+    border-radius: 10px;
+    margin-left: 9%;
+}
+.box {
+    width: 80%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.line {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #808080; 
+    line-height: 0.1em;
+    margin: 10px 0 10px; 
+}
+.line span {
+    background:#333333; 
+    color: #808080;
+    padding:0 10px; 
 }
 .social-media{
     width: 100%;
     height: 40%;
+    border: #797979 solid 1px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* margin-left: 50px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
+
 button {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 10%;
     border: none;
     font-size: 2em;
     background-color: #2E2E2E;
+    border-radius: 10px;
 }
+.social-media img{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+/* .social-mediag img{
+    width: 5vh;
+    height: 5vh;
+    margin-top: 2%;
+} */

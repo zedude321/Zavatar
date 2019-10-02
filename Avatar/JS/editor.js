@@ -5,8 +5,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         window.location = "/index.html";
     }
 });
-
-
 const categories = firebase.firestore().collection('categories');
 let itemtype;
 function createCategoryItem(name, photoURL) {

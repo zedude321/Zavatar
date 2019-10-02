@@ -27,8 +27,7 @@
 
 <body>
 <div class="container">
-    <div class="status-bar"> <h2>BROWSER BAR</h2> </div>
-    <div id="jpg" class="images">
+        <div id="jpg" class="images">
                 <div class="image-container">
                 <img id="image-1" class="image" src="SRC/loader1.png" />
                 <img id="image-2" class="image" src="SRC/loader2.png" />
@@ -36,17 +35,20 @@
                 <img id="image-4" class="image" src="SRC/loader4.png" />
                 <img id="image-5" class="image" src="SRC/loader5.png" /> </div>
         </div>
-    <div class="text"><h2>tavtai moril</h2></div>
-    <div class="social-media">
-                <button onclick="facebookLogin()"><i class="fa fa-facebook"><img src="facebook.jpg" alt="" width="25"
-                        height="25"></i>-p нэвтрэх</button>
-                <h2>esvel</h2>
-                <button onclick="googleLogin()"><i class="fa fa-google"><img src="google.jpg" alt="" width="25"
-                        height="25"></i>-p нэвтрэх</button>
-        </div>
+    <div class = "box">
+            <div class="text"><h2>Тавтай морил</h2></div>
+            <div class="social-media" onclick="googleLogin()">
+                    <img src="SRC/Social Media 2 - 35 google media network search.png" alt="">
+                     -p нэвтрэх
+            </div>
+            <div class="line"><span>Эсвэл</span></div>
+            <div class="social-media" onclick="facebookLogin()">
+                    <img src="SRC/Group.png" alt="" >
+                    -p нэвтрэх
+            </div>   
+    </div>
+    
 </div>
     <script src="JS/login.js"></script>
-
 </body>
-
 </html>
