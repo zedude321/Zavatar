@@ -1,4 +1,4 @@
-const db = firebase.firestore();
+    const db = firebase.firestore();
 
 
 function createUser(uid, name, email) {
