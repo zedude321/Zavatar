@@ -20,5 +20,5 @@ function draw(acquired){
         });
     });
 }
-
+draw(acquired)
 // setInterval(function(){draw(acquired)}, 100);
