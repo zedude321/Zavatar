@@ -112,7 +112,7 @@ body {
         margin-right: 1vh;
         /* border: black 1px solid; */
         background-color: #444444;
-        background-size: cover;
+        background-size: 80%;
         background-repeat: no-repeat;
         background-position: center center;
         border-radius: 50%;
@@ -125,7 +125,7 @@ body {
         margin-right: 1vh;
         /* border: black 1px solid; */
         background-color: #444444;
-        /* background-size: cover; */
+        background-size: 50% 60%;
         background-repeat: no-repeat;
         background-position: center center;
         border-radius: 50%;
