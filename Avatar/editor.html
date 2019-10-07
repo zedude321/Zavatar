@@ -3,7 +3,7 @@
 
 <head>
     <title>Avacreator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="CSS/editor.css">
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
@@ -26,7 +26,9 @@
 
 <body>
     <div class="header">
-        <div class="gender"></div>
+        <div class="gender" onclick="gender()"></div>
+        <div class="name"></div>
+        <div class="share" onclick="share()"></div>
     </div>
     <div class="screen">
         <canvas class="avatar" id = "avatar" height="550px" width="300px">

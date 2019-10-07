@@ -14,7 +14,7 @@ function createUser(uid, name, email) {
             console.error("Error creating user: ", error);
         })
         .finally(function () {
-            window.location = "/editor.html";
+            window.location = "/loader.html";
         });
 }
 
@@ -30,7 +30,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         }).catch(function (error) {
             console.log("Error getting user:", error);
         }).finally(function () {
-            window.location = "/editor.html";
+            window.location = "/loader.html";
         });
     }
 });
