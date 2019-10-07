@@ -29,6 +29,8 @@ function draw(acquired){
                 break; 
         }
         console.log("XAXA", acquired['l pose']);
+    } else {
+        ctx.drawImage(male0, (canvas.width - canvas.height * 2 / 5) / 2, canvas.height / 10, canvas.height * 2 / 5, canvas.height * 4 / 5);
     }
 
     Object.keys(acquired).forEach(function (key) {
