@@ -4,7 +4,7 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male = new Image();
-male.src = "./SRC/Guy.png";
+male.src = "./SRC/man1.png";
 
 function draw(acquired){
     ctx.drawImage(male, 0, 50, canvas.width, canvas.height);
