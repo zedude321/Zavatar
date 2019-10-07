@@ -8,7 +8,7 @@ male.src="SRC/man1.png";
 
 function draw(acquired){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(male, 0, 50, canvas.width, canvas.height);
+    ctx.drawImage(male, 0, 0, canvas.width, canvas.height);
     Object.keys(acquired).forEach(function (key) {
         categories.doc(key).get().then(function (doc) {
             // console.log(key); // key
