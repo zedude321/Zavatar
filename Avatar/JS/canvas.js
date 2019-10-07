@@ -4,9 +4,10 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male = new Image();
-male.src = "./SRC/man1.png";
+male.src="SRC/man1.png";
 
 function draw(acquired){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(male, 0, 50, canvas.width, canvas.height);
     Object.keys(acquired).forEach(function (key) {
         categories.doc(key).get().then(function (doc) {
@@ -20,5 +21,5 @@ function draw(acquired){
         });
     });
 }
-
+draw(acquired)
 // setInterval(function(){draw(acquired)}, 100);

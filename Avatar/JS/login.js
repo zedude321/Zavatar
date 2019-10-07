@@ -1,6 +1,4 @@
 const db = firebase.firestore();
-
-
 function createUser(uid, name, email) {
     console.log(uid);
     var userRef = db.collection("users").doc(uid);
@@ -15,7 +13,7 @@ function createUser(uid, name, email) {
         .catch(function (error) {
             console.error("Error creating user: ", error);
         })
-        .finally(function (){
+        .finally(function () {
             window.location = "/editor.html";
         });
 }
@@ -31,7 +29,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
         }).catch(function (error) {
             console.log("Error getting user:", error);
-        }).finally(function (){
+        }).finally(function () {
             window.location = "/editor.html";
         });
     }
@@ -75,7 +73,7 @@ function facebookLogin() {
 let images = document.getElementsByClassName('image');
 let visibleImage = 1;
 
-setInterval(() => { 
+setInterval(() => {
 
     for (let i = 0; i < images.length; i++) {
         images[i].style.opacity = 0;

@@ -40,7 +40,11 @@ function createItem(name, indx, photoURL) {
     category.addEventListener('click', function () {
         choiceItem(name, indx)
     });
-    category.className = 'item';
+    if (name == "back"){
+        category.className = 'item';
+    } else {
+        category.className = 'itemv2';
+    }
     category.style.backgroundImage = "url('" + photoURL + "')";
     return category;
 }
