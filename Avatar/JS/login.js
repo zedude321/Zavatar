@@ -1,14 +1,11 @@
-var provider = new firebase.auth.GoogleAuthProvider();
 const db = firebase.firestore();
-
-
 function createUser(uid, name, email) {
     console.log(uid);
     var userRef = db.collection("users").doc(uid);
     userRef.set({
         name: name,
         email: email,
-        acquired: []
+        acquired: {}
     })
         .then(function () {
             console.log("User created!");
@@ -16,8 +13,8 @@ function createUser(uid, name, email) {
         .catch(function (error) {
             console.error("Error creating user: ", error);
         })
-        .finally(function (){
-            window.location = "/Editor.html";
+        .finally(function () {
+            window.location = "/editor.html";
         });
 }
 
@@ -32,8 +29,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
         }).catch(function (error) {
             console.log("Error getting user:", error);
-        }).finally(function (){
-            window.location = "/Editor.html";
+        }).finally(function () {
+            window.location = "/editor.html";
         });
     }
 });
@@ -41,6 +38,22 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 
 function googleLogin() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        var token = result.credential.accessToken;
+        var user = result.user;
+        console.log(user);
+    }).catch(function (error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        var email = error.email;
+        var credential = error.credential;
+        console.log('Auth error', errorCode, errorMessage);
+    });
+}
+
+function facebookLogin() {
+    var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
         var token = result.credential.accessToken;
         var user = result.user;
@@ -56,25 +69,19 @@ function googleLogin() {
 
 
 
-var imageSources = ["1.jpg", "2.jpg"]
 
-var index = 1;
-let image1 = document.getElementById('image-1');
-let image2 = document.getElementById('image-2');
-
-image1.style.opacity = 0;
-image2.style.opacity = 1;
-
-let isImage1Visibile = false;
+let images = document.getElementsByClassName('image');
+let visibleImage = 1;
 
 setInterval(() => {
-    if (isImage1Visibile === true) {
-        image1.style.opacity = 0;
-        image2.style.opacity = 1;
-    } else {
-        image1.style.opacity = 1;
-        image2.style.opacity = 0;
-    }
 
-    isImage1Visibile = !isImage1Visibile;
+    for (let i = 0; i < images.length; i++) {
+        images[i].style.opacity = 0;
+    }
+    images[visibleImage - 1].style.opacity = 1;
+
+    visibleImage++;
+    if (visibleImage === 6) {
+        visibleImage = 1;
+    }
 }, 2000)

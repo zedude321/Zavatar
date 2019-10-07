@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Avacreator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/editor.css">
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
@@ -24,13 +25,16 @@
 </head>
 
 <body>
+    <div class="header">
+        <div class="gender"></div>
+    </div>
     <div class="screen">
-        <div id="profile">
-        </div>
+        <canvas class="avatar" id = "avatar" height="550px" width="300px">
+        </canvas>
     </div>
     <div class="menu">
     </div>
+    <script src="JS/canvas.js"></script>
     <script src="JS/editor.js"></script>
 </body>
-
 </html>

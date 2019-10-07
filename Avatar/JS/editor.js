@@ -1,13 +1,31 @@
+const categories = firebase.firestore().collection('categories');
+const users = firebase.firestore().collection('users');
+let itemtype;
+let acquired;
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        document.getElementById('profile').innerHTML = user.displayName;
+        document.getElementsByClassName('header')[0].innerHTML = user.displayName;
+        console.log(user.email);
+        userId = users.get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                if (doc.exists && doc.data().email == user.email){
+                    userId = doc.id;
+                    console.log(userId);
+                    acquired = doc.data().acquired;
+                    users.doc(userId).onSnapshot(function(doc) {
+                        draw(acquired);
+                    });
+                }
+            });
+        })
     } else {
         window.location = "/index.html";
     }
 });
 
 
-const categories = firebase.firestore().collection('categories');
 function createCategoryItem(name, photoURL) {
     let category = document.createElement('div');
     category.addEventListener('click', function () {
@@ -17,12 +35,16 @@ function createCategoryItem(name, photoURL) {
     category.style.backgroundImage = "url('" + photoURL + "')";
     return category;
 }
-function createItem(name, photoURL) {
+function createItem(name, indx, photoURL) {
     let category = document.createElement('div');
     category.addEventListener('click', function () {
-        choiceItem(name)
+        choiceItem(name, indx)
     });
-    category.className = 'item';
+    if (name == "back"){
+        category.className = 'item';
+    } else {
+        category.className = 'itemv2';
+    }
     category.style.backgroundImage = "url('" + photoURL + "')";
     return category;
 }
@@ -50,25 +72,23 @@ function setCategories() {
     }, 1000);   
 }
 setCategories();
+
 function choiceCategory(name) {
     document.getElementsByClassName('menu')[0].classList.add('slide');
 
     setTimeout(function(){
         document.getElementsByClassName('menu')[0].innerHTML = "";
-        document.getElementsByClassName('menu')[0].appendChild(createItem("back", "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
+        document.getElementsByClassName('menu')[0].appendChild(createItem("back", 0, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
 
         categories.doc(name).get().then(function (doc) {
             if (doc.exists) {
-                console.log("Document data:", doc.data());
-                let items = doc.data();
+                console.log("Document data:", doc.data().items);
+                let items = doc.data().items;
 
-                Object.keys(items).forEach(function (key) {
-                    // console.log(key); // key
-                    // console.log(items[key]); // value
-                    if (key != 'gsURL') {
-                        let el = createItem(key, items[key].gsURL);
-                        document.getElementsByClassName('menu')[0].appendChild(el);
-                    }
+                items.forEach(function (item, index) {
+                    // console.log(name, index, item.gsURL);
+                    let el = createItem(name, index, item.gsURL);
+                    document.getElementsByClassName('menu')[0].appendChild(el);
                 });
             } else {
                 // doc.data() will be undefined in this case
@@ -84,11 +104,13 @@ function choiceCategory(name) {
     }, 1000);
     
 }
-function choiceItem(name) {
+function choiceItem(name, index) {
     if (name == "back") {
         setCategories();
     }
     else {
-        alert('YouSuck');
+        acquired[name] = index;
+        console.log(acquired);
+        users.doc(userId).update({acquired: acquired});
     }
 }
