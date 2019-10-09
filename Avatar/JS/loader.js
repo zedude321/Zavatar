@@ -12,5 +12,6 @@ setInterval(() => {
     visibleImage++;
     if (visibleImage === 6) {
         visibleImage = 1;
+        window.location = "/songoh.html";
     }
 }, 1500)

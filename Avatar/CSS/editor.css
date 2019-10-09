@@ -10,9 +10,28 @@ body {
     width: 100vw;
     color: black;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
+.gender {
+    height: 50px;
+    width: 50px;
+    background-image: url('../SRC/gender1.png');
+    background-size: cover;
+    margin-left: 10px;
+}
+
+.share {
+    height: 30px;
+    width: 30px;
+    background-image: url('../SRC/done.png');
+    background-size: 90% 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-right: 10px;
+}
+
+
 .screen {
     height: 80vh;
     width: 100vw;
@@ -53,6 +72,11 @@ body {
 /* .item:active{
 
 } */
+/* #done {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+} */
 @keyframes slide{
     0% {
         transform: translateY(0px);
@@ -76,7 +100,7 @@ body {
         width: 100vw;
         color: black;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
     .screen {

@@ -5,7 +5,7 @@ let acquired;
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        document.getElementsByClassName('header')[0].innerHTML = user.displayName;
+        document.getElementsByClassName('name')[0].innerHTML = user.displayName.split(' ')[0];
         console.log(user.email);
         userId = users.get()
         .then(function (querySnapshot) {
@@ -121,4 +121,10 @@ function choiceItem(name, index) {
             users.doc(userId).update({acquired: acquired});
         }
     }
+}
+function gender() {
+
+}
+function share() {
+
 }
