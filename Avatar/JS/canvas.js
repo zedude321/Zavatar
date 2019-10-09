@@ -4,13 +4,13 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male2 = new Image();
-male2.src="SRC/man3.png"; 
+male2.src="SRC/african_man.png"; 
 
 const male1 = new Image();
-male1.src="SRC/man1.png"; 
+male1.src="SRC/asian_man.png"; 
 
 const male0 = new Image();
-male0.src="SRC/man.png"; 
+male0.src="SRC/white_man.png"; 
 
 function draw(acquired){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
