@@ -79,6 +79,7 @@ function choiceCategory(name) {
     setTimeout(function(){
         document.getElementsByClassName('menu')[0].innerHTML = "";
         document.getElementsByClassName('menu')[0].appendChild(createItem("back", 0, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
+        document.getElementsByClassName('menu')[0].appendChild(createItem(name, -1, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
 
         categories.doc(name).get().then(function (doc) {
             if (doc.exists) {
@@ -109,8 +110,15 @@ function choiceItem(name, index) {
         setCategories();
     }
     else {
-        acquired[name] = index;
-        console.log(acquired);
-        users.doc(userId).update({acquired: acquired});
+        if (index == -1){
+            delete acquired[name];
+            console.log(acquired);
+            users.doc(userId).update({acquired: acquired});
+        }
+        else {
+            acquired[name] = index;
+            console.log(acquired);
+            users.doc(userId).update({acquired: acquired});
+        }
     }
 }
