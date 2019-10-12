@@ -4,13 +4,13 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male2 = new Image();
-male2.src="SRC/african_man.png"; 
+male2.src="SRC/Black.png"; 
 
 const male1 = new Image();
-male1.src="SRC/asian_man.png"; 
+male1.src="SRC/Yellow.png"; 
 
 const male0 = new Image();
-male0.src="SRC/white_man.png"; 
+male0.src="SRC/White.png"; 
 
 function draw(acquired){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -36,7 +36,7 @@ function draw(acquired){
     Object.keys(acquired).forEach(function (key) {
         categories.doc(key).get().then(function (doc) {
             // console.log(key); // key
-            // console.log(acquired[key]); // value
+            console.log('ak',acquired[key]); // value
             // console.log(doc.data().items[acquired[key]].gsURL);
             var tmpImage = new Image();
             tmpImage.src = doc.data().items[acquired[key]].gsURL;
