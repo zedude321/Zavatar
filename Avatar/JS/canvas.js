@@ -4,6 +4,7 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male2 = new Image();
+<<<<<<< HEAD
 male2.src = "SRC/african_man.png";
 
 const male1 = new Image();
@@ -11,6 +12,15 @@ male1.src = "SRC/asian_man.png";
 
 const male0 = new Image();
 male0.src = "SRC/white_man.png";
+=======
+male2.src="SRC/Black.png"; 
+
+const male1 = new Image();
+male1.src="SRC/Yellow.png"; 
+
+const male0 = new Image();
+male0.src="SRC/White.png"; 
+>>>>>>> 03fe5d06e06eb30f91ff87ede5da23807b25082b
 
 let images = {};
 
