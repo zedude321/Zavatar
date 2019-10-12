@@ -25,12 +25,13 @@ firebase.auth().onAuthStateChanged(function (user) {
             if (doc.exists) {
                 console.log("User exists:", doc.data());
             } else {
+                console.log("CREATE USER");
                 createUser(user.uid, user.displayName, user.email);
             }
         }).catch(function (error) {
             console.log("Error getting user:", error);
         }).finally(function () {
-            window.location = "/loader.html";
+            // window.location = "/loader.html";
         });
     }
 });
