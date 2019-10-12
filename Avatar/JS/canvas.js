@@ -4,13 +4,16 @@ const h = canvas.height;
 const w = canvas.width;
 
 const male2 = new Image();
-male2.src="SRC/Black.png"; 
+male2.src="SRC/Black.png";
+male2.crossOrigin = "Anonymous";
 
 const male1 = new Image();
 male1.src="SRC/Yellow.png"; 
+male1.crossOrigin = "Anonymous";
 
 const male0 = new Image();
 male0.src="SRC/White.png"; 
+male0.crossOrigin = "Anonymous";
 
 let images = {};
 
@@ -61,5 +64,5 @@ function draw(acquired) {
     });
 }
 
-draw(acquired)
-// setInterval(function(){draw(acquired)}, 1000);
+
+//draw(acquired)

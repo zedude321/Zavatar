@@ -3,23 +3,28 @@ const users = firebase.firestore().collection('users');
 let itemtype;
 let acquired;
 
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         document.getElementsByClassName('name')[0].innerHTML = user.displayName.split(' ')[0];
         console.log(user.email);
         userId = users.get()
-        .then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                if (doc.exists && doc.data().email == user.email){
-                    userId = doc.id;
-                    console.log(userId);
-                    acquired = doc.data().acquired;
-                    users.doc(userId).onSnapshot(function(doc) {
-                        draw(acquired);
-                    });
-                }
-            });
-        })
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    if (doc.exists && doc.data().email == user.email) {
+                        userId = doc.id;
+                        console.log(userId);
+                        acquired = doc.data().acquired;
+                        console.log("Eqweq");
+                        console.log(acquired);
+                        users.doc(userId).onSnapshot(function (doc) {
+                            console.log(acquired);
+                            draw(acquired);
+                            setTimeout(function () { draw(acquired); }, 5000);
+                        });
+                    }
+                });
+            })
     } else {
         window.location = "/index.html";
     }
@@ -40,7 +45,7 @@ function createItem(name, indx, photoURL) {
     category.addEventListener('click', function () {
         choiceItem(name, indx)
     });
-    if (name == "back"){
+    if (name == "back") {
         category.className = 'item';
     } else {
         category.className = 'itemv2';
@@ -51,7 +56,7 @@ function createItem(name, indx, photoURL) {
 function setCategories() {
     document.getElementsByClassName('menu')[0].classList.add('slide');
 
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementsByClassName('menu')[0].innerHTML = "";
         categories.get()
             .then(function (querySnapshot) {
@@ -67,19 +72,19 @@ function setCategories() {
             });
     }, 500);
 
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementsByClassName('menu')[0].classList.remove('slide');
-    }, 1000);   
+    }, 1000);
 }
 setCategories();
 
 function choiceCategory(name) {
     document.getElementsByClassName('menu')[0].classList.add('slide');
 
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementsByClassName('menu')[0].innerHTML = "";
         document.getElementsByClassName('menu')[0].appendChild(createItem("back", 0, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
-        document.getElementsByClassName('menu')[0].appendChild(createItem(name, -1, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/categories%2Fbackcuttn.png?alt=media&token=e01e540f-40de-4958-b26c-1a948a690c90"));
+        document.getElementsByClassName('menu')[0].appendChild(createItem(name, -1, "https://firebasestorage.googleapis.com/v0/b/zavatarapp.appspot.com/o/Group%402x.png?alt=media&token=302d0b3c-2984-4c0e-9f7b-feb88c99ba89"));
 
         categories.doc(name).get().then(function (doc) {
             if (doc.exists) {
@@ -100,31 +105,29 @@ function choiceCategory(name) {
         });
     }, 500);
 
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementsByClassName('menu')[0].classList.remove('slide');
     }, 1000);
-    
+
 }
 function choiceItem(name, index) {
     if (name == "back") {
         setCategories();
     }
     else {
-        if (index == -1){
+        if (index == -1) {
             delete acquired[name];
             console.log(acquired);
-            users.doc(userId).update({acquired: acquired});
+            users.doc(userId).update({ acquired: acquired });
         }
         else {
             acquired[name] = index;
             console.log(acquired);
-            users.doc(userId).update({acquired: acquired});
+            users.doc(userId).update({ acquired: acquired });
         }
     }
 }
-function gender() {
 
-}
-function share() {
-
+function share(){
+    window.location = "/result.html";
 }

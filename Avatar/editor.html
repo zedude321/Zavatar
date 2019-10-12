@@ -27,9 +27,9 @@
         // Service Worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js')
-            .then(function () {
-                console.log('Service Worker Registered');
-            });
+                .then(function () {
+                    console.log('Service Worker Registered');
+                });
         }
     </script>
 </head>
@@ -39,14 +39,18 @@
         <div class="gender" onclick="gender()"></div>
         <div class="name"></div>
         <div class="share" onclick="share()"></div>
+
     </div>
     <div class="screen">
-        <canvas class="avatar" id = "avatar" height="550px" width="300px">
+        <canvas class="avatar" id="avatar" height="550px" width="300px">
         </canvas>
     </div>
     <div class="menu">
     </div>
-    <script src="JS/canvas.js"></script>
-    <script src="JS/editor.js"></script>
+
 </body>
+<script src="JS/editor.js"></script>
+<script src="JS/canvas.js"></script>
+
+
 </html>

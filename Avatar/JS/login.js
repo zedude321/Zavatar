@@ -7,15 +7,15 @@ function createUser(uid, name, email) {
         email: email,
         acquired: {}
     })
-        .then(function () {
-            console.log("User created!");
-        })
-        .catch(function (error) {
-            console.error("Error creating user: ", error);
-        })
-        .finally(function () {
-            window.location = "/loader.html";
-        });
+    .then(function () {
+        console.log("User created!");
+    })
+    .catch(function (error) {
+        console.error("Error creating user: ", error);
+    })
+    .finally(function () {
+        window.location = "/loader.html";
+    });
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         userRef.get().then(function (doc) {
             if (doc.exists) {
                 console.log("User exists:", doc.data());
+                window.location = "/loader.html";
             } else {
                 console.log("CREATE USER");
                 createUser(user.uid, user.displayName, user.email);
