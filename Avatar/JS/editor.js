@@ -131,7 +131,3 @@ function choiceItem(name, index) {
 function share(){
     window.location = "/result.html";
 }
-
-categories.doc("b bshoes").get().then(function (doc) {
-    categories.doc("a shoes").set(doc.data());
-});
